@@ -8,4 +8,6 @@ test O${i}:"
    perf stat ./matadd | tee -a mataddTest.out
 done
 
+make clean
+
 exit 0
