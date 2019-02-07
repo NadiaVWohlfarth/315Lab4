@@ -1,4 +1,8 @@
 #!/bin/bash
 set -e
 
-
+for i in {0..3}; do
+   make clean
+   # make O${i} version
+   # perf stat run | tee mataddTest.out
+done
