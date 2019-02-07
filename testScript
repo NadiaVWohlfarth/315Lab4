@@ -1,8 +1,10 @@
 #!/bin/bash
 
+echo "" > mataddTest.out
+
 for i in {0..3}; do
    echo "
-test O${i}:"
+test O${i}:" | tee -a mataddTest.out
    make clean
    make matadd_${i}
    perf stat ./matadd | tee -a mataddTest.out
