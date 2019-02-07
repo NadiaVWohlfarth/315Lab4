@@ -1,0 +1,61 @@
+
+test O0:
+
+ Performance counter stats for './matadd':
+
+          0.784267      task-clock:u (msec)       #    0.308 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+               123      page-faults:u             #    0.157 M/sec                  
+           271,163      cycles:u                  #    0.346 GHz                    
+           153,748      instructions:u            #    0.57  insn per cycle         
+            32,195      branches:u                #   41.051 M/sec                  
+             3,320      branch-misses:u           #   10.31% of all branches        
+
+       0.002547091 seconds time elapsed
+
+test O1:
+
+ Performance counter stats for './matadd':
+
+          0.778072      task-clock:u (msec)       #    0.136 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+               123      page-faults:u             #    0.158 M/sec                  
+           263,326      cycles:u                  #    0.338 GHz                    
+           152,168      instructions:u            #    0.58  insn per cycle         
+            32,176      branches:u                #   41.353 M/sec                  
+             3,162      branch-misses:u           #    9.83% of all branches        
+
+       0.005738704 seconds time elapsed
+
+test O2:
+
+ Performance counter stats for './matadd':
+
+          0.781261      task-clock:u (msec)       #    0.282 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+               122      page-faults:u             #    0.156 M/sec                  
+           263,959      cycles:u                  #    0.338 GHz                    
+           151,990      instructions:u            #    0.58  insn per cycle         
+            32,170      branches:u                #   41.177 M/sec                  
+             3,324      branch-misses:u           #   10.33% of all branches        
+
+       0.002772746 seconds time elapsed
+
+test O3:
+
+ Performance counter stats for './matadd':
+
+          0.766445      task-clock:u (msec)       #    0.369 CPUs utilized          
+                 0      context-switches:u        #    0.000 K/sec                  
+                 0      cpu-migrations:u          #    0.000 K/sec                  
+               123      page-faults:u             #    0.160 M/sec                  
+           261,084      cycles:u                  #    0.341 GHz                    
+           151,637      instructions:u            #    0.58  insn per cycle         
+            32,112      branches:u                #   41.897 M/sec                  
+             3,120      branch-misses:u           #    9.72% of all branches        
+
+       0.002078702 seconds time elapsed
+
