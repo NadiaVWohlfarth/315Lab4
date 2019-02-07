@@ -5,8 +5,16 @@
  *    A, B, C: pointers to height x width matrices
  *    C <- A + B
  */
-static void matadd(int **C, int **A, int **B, int height, int width) {
+static void matadd(int **C, int **A, int **B, int height, int width)
+{
    int i, j; /* used to index into matrices */
+   for(i=0, i<height, i++)
+   {
+      for(j=0, j<width, j++)
+      {
+         C[i][j] = A[i][j] + B[i][j];
+      }
+   }
 }
 
 /*
