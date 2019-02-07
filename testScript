@@ -2,7 +2,11 @@
 set -e
 
 for i in {0..3}; do
+   echo "
+test O${i}:"
    make clean
-   # make O${i} version
-   # perf stat run | tee mataddTest.out
+   make matadd_${i}
+   perf stat ./matadd | tee -a mataddTest.out
 done
+
+exit 0
