@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -pedantic -Wall -Werror
+CFLAGS = -pedantic -Wall -Werror -std=c89
 
 all: matadd_0
 
