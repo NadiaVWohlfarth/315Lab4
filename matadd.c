@@ -2,13 +2,15 @@
 #define ROWS 3
 #define COLS 9
 
+void matadd(int**, int**, int**, int, int);
+
 int main(int argc, char* argv[]) {
-   int[][] A, B, C;
-   int i, j;
-   int* temp;
+   int **A, **B, **C; /* Matrices */
+   int i, j; /* indexing */
+   int *temp; /* checks columns of matrices for validity */
 
    /* Allocate A */
-   A = malloc(sizeof(int*) * ROWS);
+   A = (int**)malloc(sizeof(int*) * ROWS);
    if (NULL == A) {
       exit(EXIT_FAILURE);
    }
@@ -16,7 +18,7 @@ int main(int argc, char* argv[]) {
    /* Fill out A */
    for (i = 0; i < ROWS; i++) {
       /* Allocate next row */
-      temp = malloc(sizeof(int) * COLS);
+      temp = (int*)malloc(sizeof(int) * COLS);
       if (NULL == temp) {
          exit(EXIT_FAILURE);
       }
@@ -29,15 +31,15 @@ int main(int argc, char* argv[]) {
    }
 
    /* Allocate B */
-   B = malloc(sizeof(int) * ROWS);
+   B = (int**)malloc(sizeof(int) * ROWS);
    if (NULL == B) {
-      exit(EXIT_FAILURE)
+      exit(EXIT_FAILURE);
    }
 
    /* Fill out B */
    for (i = 0; i < ROWS; i++) {
       /* Allocate next row */
-      temp = malloc(sizeof(int) * COLS);
+      temp = (int*)malloc(sizeof(int) * COLS);
       if (NULL == temp) {
          exit(EXIT_FAILURE);
       }
@@ -50,15 +52,15 @@ int main(int argc, char* argv[]) {
    }
 
    /* Allocate C */
-   C = malloc(sizeof(int) * ROWS);
+   C = (int**)malloc(sizeof(int) * ROWS);
    if (NULL == C) {
-      exit(EXIT_FAILURE)
+      exit(EXIT_FAILURE);
    }
 
    /* Fill out C */
    for (i = 0; i < ROWS; i++) {
       /* Allocate next row */
-      temp = calloc(sizeof(int) * COLS);
+      temp = (int*)calloc(COLS, sizeof(int));
       if (NULL == temp) {
          exit(EXIT_FAILURE);
       }
@@ -93,9 +95,9 @@ int main(int argc, char* argv[]) {
 void matadd(int **C, int **A, int **B, int height, int width)
 {
    int i, j; /* used to index into matrices */
-   for(i=0, i<height, i++)
+   for(i=0; i<height; i++)
    {
-      for(j=0, j<width, j++)
+      for(j=0; j<width; j++)
       {
          C[i][j] = A[i][j] + B[i][j];
       }
