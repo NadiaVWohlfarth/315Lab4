@@ -2,11 +2,11 @@
 
 echo "" > mataddTest.out
 
-for i in {0..3}; do
+for i in {1,2,4,8}; do
    echo "test loop unroll ${i}:" | tee -a mataddTest.out
    make clean
    make 
-   perf stat ./matadd i2^${i} 2>> mataddTest.out
+   perf stat ./matadd ${i} 2>> mataddTest.out
 done
 
 make clean
