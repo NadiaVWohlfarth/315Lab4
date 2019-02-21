@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #define ROWS 3
 #define COLS 9
 
@@ -138,7 +139,7 @@ void matadd2(int **C, int **A, int **B, int height, int width) {
        * make sure that width - j is divisible by 2 so that the unrolled loop
        * won't segfault
        */
-      while (width-j % inc != 0) {
+      while ((width-j) % inc != 0) {
          C[i][j] = A[i][j] + B[i][j];
          j++;
       }
@@ -168,7 +169,7 @@ void matadd4(int **C, int **A, int **B, int height, int width) {
        * make sure that width - j is divisible by 4 so that the unrolled loop
        * won't segfault
        */
-      while (width-j % inc != 0) {
+      while ((width-j) % inc != 0) {
          C[i][j] = A[i][j] + B[i][j];
          j++;
       }
@@ -199,7 +200,7 @@ void matadd8(int **C, int **A, int **B, int height, int width) {
        * make sure that width - j is divisible by 8 so that the unrolled loop
        * won't segfault
        */
-      while (width-j % inc != 0) {
+      while ((width-j) % inc != 0) {
          C[i][j] = A[i][j] + B[i][j];
          j++;
       }
