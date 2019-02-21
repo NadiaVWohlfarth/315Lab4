@@ -86,7 +86,15 @@ int main(int argc, char* argv[]) {
 
    if(argv[1] == '2')
    {
-      matadd2(
+      matadd2(**C, **A, **B, height, width);
+   }
+   if(argv[1] == '4')
+   {
+       matadd4(**C, **A, **B, height, width);
+   }
+   if(argv[1] == '8')
+   {
+      matadd8(**C, **A, **B, height, width);
    }
 
 /*
