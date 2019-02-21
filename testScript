@@ -3,10 +3,10 @@
 echo "" > mataddTest.out
 
 for i in {0..3}; do
-   echo "test O${i}:" | tee -a mataddTest.out
+   echo "test loop unroll ${i}:" | tee -a mataddTest.out
    make clean
-   make matadd_${i}
-   perf stat ./matadd 2>> mataddTest.out
+   make 
+   perf stat ./matadd i2^${i} 2>> mataddTest.out
 done
 
 make clean
