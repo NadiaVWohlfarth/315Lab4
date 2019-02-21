@@ -9,6 +9,7 @@ int main(int argc, char* argv[]) {
    int i, j; /* indexing */
    int *temp; /* checks columns of matrices for validity */
 
+
    /* Allocate A */
    A = (int**)malloc(sizeof(int*) * ROWS);
    if (NULL == A) {
@@ -83,8 +84,10 @@ int main(int argc, char* argv[]) {
    return EXIT_SUCCESS;
 }
 
-
-
+   if(argv[1] == '2')
+   {
+      matadd2(
+   }
 
 /*
  * matrix addition
