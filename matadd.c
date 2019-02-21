@@ -111,9 +111,27 @@ void matadd(int **C, int **A, int **B, int height, int width)
  *    C <- A + B
  * implements loop unrolling level 2
  */
-/* static void matadd2(int **C, int **A, int **B, int height, int width) {
+static void matadd2(int **C, int **A, int **B, int height, int width) {
    int i, j;
-} */
+   int inc = 2;
+   for(i=0; i<height; i++)
+   {
+      j = 0;
+      /* 
+       * make sure that width - j is divisible by 2 so that the unrolled loop
+       * won't segfault
+       */
+      while (width-j % inc != 0) {
+         C[i][j] = A[i][j] + B[i][j];
+         j++;
+      }
+      for(; j<width; j += inc)
+      {
+         C[i][j] = A[i][j] + B[i][j];
+         C[i][j+1] = A[i][j+1] + B[i][j+1];
+      }
+   }
+}
 
 /*
  * matrix addition
@@ -122,9 +140,33 @@ void matadd(int **C, int **A, int **B, int height, int width)
  *    C <- A + B
  * implements loop unrolling level 4
  */
-/* static void matadd4(int **C, int **A, int **B, int height, int width) {
+ static void matadd4(int **C, int **A, int **B, int height, int width) {
    int i, j;
-} */
+   int inc = 8;
+   for(i=0; i<height; i++)
+   {
+      j = 0;
+      /* 
+       * make sure that width - j is divisible by 8 so that the unrolled loop
+       * won't segfault
+       */
+      while (width-j % inc != 0) {
+         C[i][j] = A[i][j] + B[i][j];
+         j++;
+      }
+      for(; j<width; j += inc)
+      {
+         C[i][j] = A[i][j] + B[i][j];
+         C[i][j+1] = A[i][j+1] + B[i][j+1];
+         C[i][j+2] = A[i][j+2] + B[i][j+2];
+         C[i][j+3] = A[i][j+3] + B[i][j+3];
+         C[i][j+4] = A[i][j+4] + B[i][j+4];
+         C[i][j+5] = A[i][j+5] + B[i][j+5];
+         C[i][j+6] = A[i][j+6] + B[i][j+6];
+         C[i][j+7] = A[i][j+7] + B[i][j+7];
+      }
+   }
+}
 
 /*
  * matrix addition
@@ -133,6 +175,26 @@ void matadd(int **C, int **A, int **B, int height, int width)
  *    C <- A + B
  * implements loop unrolling level 8
  */
-/* static void matadd8(int **C, int **A, int **B, int height, int width) {
+static void matadd8(int **C, int **A, int **B, int height, int width) {
    int i, j;
-} */
+   int inc = 4;
+   for(i=0; i<height; i++)
+   {
+      j = 0;
+      /* 
+       * make sure that width - j is divisible by 4 so that the unrolled loop
+       * won't segfault
+       */
+      while (width-j % inc != 0) {
+         C[i][j] = A[i][j] + B[i][j];
+         j++;
+      }
+      for(; j<width; j += inc)
+      {
+         C[i][j] = A[i][j] + B[i][j];
+         C[i][j+1] = A[i][j+1] + B[i][j+1];
+         C[i][j+2] = A[i][j+2] + B[i][j+2];
+         C[i][j+3] = A[i][j+3] + B[i][j+3];
+      }
+   }
+}
